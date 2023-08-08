@@ -2,7 +2,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/<path:path>', methods=['POST', 'GET'])
+@app.route('/<path:path>', methods=['GET', 'POST', 'PUT', 'DELETE'])
 def handle_request(path):
     # 获取请求方法
     method = request.method
@@ -17,6 +17,7 @@ def handle_request(path):
     print(f"Method: {method}")
     print(f"Path: /{path}")
     print("Headers:")
+    # print(headers)
     for header, value in headers.items():
         print(f"{header}: {value}")
     print(f"Body: {body}")
